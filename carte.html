@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Calendrier Course Camarguaise 2026</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <style>
+#filtres {
+    position: absolute;
+    top: 10px;
+    left: 50px;
+    z-index: 1000;
+    background: white;
+    padding: 10px 14px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    font-size: 13px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+#filtres input[type="date"] {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 3px 6px;
+    font-size: 13px;
+}
+#filtres button {
+    background: #3388ff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 4px 10px;
+    cursor: pointer;
+    font-size: 13px;
+}
+        body { margin: 0; font-family: sans-serif; }
+        #map { height: 100vh; width: 100%; }
+        #info { position: absolute; top: 10px; right: 10px; z-index: 1000;
+                background: white; padding: 10px; border-radius: 8px;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.3); font-size: 13px; }
+    </style>
+</head>
+<body>
+<div id="map"></div>
+<div id="filtres">
+    📅 Du <input type="date" id="date-debut" value="2026-06-01">
+    au <input type="date" id="date-fin" value="2026-10-31">
+    <button onclick="filtrer()">Filtrer</button>
+    <button onclick="resetFiltres()">Tout afficher</button>
+</div>
+<div id="info">🐂 <strong>Course Camarguaise 2026</strong><br>
+<span id="count"></span> courses • Cliquez sur un marqueur</div>
+
+<script>
+const map = L.map('map').setView([43.7, 4.5], 9);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap contributors'
+}).addTo(map);
+
+function getMarker(courses) {
+    const details = courses.map(c => c.detail);
+    const hasAs = details.some(d => d.includes('TROPHEE NIVEAU AS'));
+    const hasAvenir = details.some(d => d.includes('TROPHEE NIVEAU AVENIR'));
+    const couleur = hasAs ? '#FFD700' : hasAvenir ? '#C0C0C0' : '#3388ff';
+    const bordure = hasAs ? '#B8860B' : hasAvenir ? '#808080' : '#2255cc';
+    return L.divIcon({
+        className: '',
+        html: `<svg width="24" height="36" viewBox="0 0 24 36" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 0C5.4 0 0 5.4 0 12c0 9 12 24 12 24s12-15 12-24C24 5.4 18.6 0 12 0z"
+                fill="${couleur}" stroke="${bordure}" stroke-width="1.5"/>
+            <circle cx="12" cy="12" r="5" fill="${bordure}"/>
+        </svg>`,
+        iconSize: [24, 36],
+        iconAnchor: [12, 36],
+        popupAnchor: [0, -36]
+    });
+}
+
+function buildPopup(c) {
+    const lignes = c.detail.split('\n').filter(l => l.trim());
+    const date = lignes.find(l => l.startsWith('Date'))?.replace('Date : ', '') || '';
+    const heureRaw = lignes.find(l => l.startsWith('Heure'))?.replace('Heure : ', '');
+    const heure = heureRaw ? `🕐 ${heureRaw}` : '🕐 N.C.';
+    const tarif = lignes.find(l => l.startsWith('Tarif'))?.replace('Tarif : ', '') || 'N.C.';
+    const annule = c.detail.includes('ANNULÉE') ? ' <span style="color:red">⚠️ ANNULÉE</span>' : '';
+    const niveaux = {
+        'TROPHEE NIVEAU AS': '🥇 Trophée Niveau As',
+        'TROPHEE NIVEAU AVENIR': '🥈 Trophée Niveau Avenir',
+        'NIVEAU AS HORS TROPHEE': 'Niveau As (hors trophée)',
+        'NIVEAU AVENIR HORS TROPHEE': 'Niveau Avenir (hors trophée)',
+        'LIGUE OCCITANIE': 'Ligue Occitanie',
+        'LIGUE P.A.C.A.': 'Ligue P.A.C.A.',
+        'TAUREAUX JEUNES': 'Taureaux Jeunes',
+        'TAUREAUX NEUFS': 'Taureaux Neufs',
+        'VACHES COCARDIERES': 'Vaches Cocardières',
+        'ETALONS': 'Étalons',
+        'ETALONS NEUFS': 'Étalons Neufs',
+        'FINALE DES LIGUES OCCITANIE': '🏆 Finale des Ligues Occitanie',
+        'FINALE DES LIGUES REGION SUD': '🏆 Finale des Ligues Région Sud',
+    };
+    let niveauAffiche = lignes[1] || '';
+    for (const [key, val] of Object.entries(niveaux)) {
+        if (c.detail.includes(key)) { niveauAffiche = val; break; }
+    }
+    return `
+        <div style="margin-bottom:8px;padding-bottom:8px;border-bottom:1px solid #eee">
+            <b>${date}</b> ${heure}${annule}<br>
+            <span style="color:#555;font-size:0.9em">${niveauAffiche}</span><br>
+            💶 ${tarif}
+        </div>`;
+}
+
+const tousMarqueurs = [];
+
+fetch('courses_geo.json')
+    .then(r => r.json())
+    .then(courses => {
+        const valides = courses.filter(c => c.lat && c.lon);
+        document.getElementById('count').textContent = valides.length;
+
+        const parCommune = {};
+        valides.forEach(c => {
+            const key = c.commune;
+            if (!parCommune[key]) parCommune[key] = { lat: c.lat, lon: c.lon, courses: [] };
+            parCommune[key].courses.push(c);
+        });
+
+        Object.entries(parCommune).forEach(([commune, data]) => {
+            const nb = data.courses.length;
+            const popup = data.courses.map(buildPopup).join('');
+            const marker = L.marker([data.lat, data.lon], {icon: getMarker(data.courses)})
+    .addTo(map)
+    .bindPopup(`<b>🏟️ ${commune}</b> — ${nb} course(s)<br><br>${popup}`, {maxHeight: 300, minWidth: 220});
+marker._dates = data.courses.map(c => c.date);
+marker._data = data;
+marker._commune = commune;
+tousMarqueurs.push(marker);
+        });
+    });
+
+function buildPopupFiltre(data, commune, debut, fin) {
+    const coursesFiltrees = fin 
+        ? data.courses.filter(c => c.date >= debut && c.date <= fin)
+        : data.courses;
+    const nb = coursesFiltrees.length;
+    const popup = coursesFiltrees.map(buildPopup).join('');
+    return `<b>🏟️ ${commune}</b> — ${nb} course(s)<br><br>${popup}`;
+}
+
+function filtrer() {
+    const debut = document.getElementById('date-debut').value;
+    const fin = document.getElementById('date-fin').value;
+    tousMarqueurs.forEach(marker => {
+        const coursesDansPeriode = marker._data.courses.filter(c => c.date >= debut && c.date <= fin);
+        if (coursesDansPeriode.length > 0) {
+            marker.addTo(map);
+            marker.setPopupContent(buildPopupFiltre(marker._data, marker._commune, debut, fin));
+        } else {
+            marker.remove();
+        }
+    });
+}
+
+function resetFiltres() {
+    tousMarqueurs.forEach(marker => {
+        marker.addTo(map);
+        const nb = marker._data.courses.length;
+        const popup = marker._data.courses.map(buildPopup).join('');
+        marker.setPopupContent(`<b>🏟️ ${marker._commune}</b> — ${nb} course(s)<br><br>${popup}`);
+    });
+}
+</script>
+</body>
+</html>
