@@ -87,47 +87,6 @@ Les corrections de géocodage, ajouts de communes manquantes ou améliorations d
 - 🕐 Detalh per comuno : dato, uro, nivèu, tarife
 - 📅 Filtre per periòde pèr trouba lei courso procho dins lou tèms
 
-
-### La corsa camarguesa
-
-La corsa camarguesa, o corsa liura, es una disciplina sportiva e culturala tradicionala del sud de França, practicada principalament dins lo Gard, l'Erau, las Bocas-del-Ròse e lo Vauclusa.
-
-Lo principi : de rasetaires cercan a levar amb un cròc (lo raset) d'atributs (una cocarda, dos glands e dos ficèlas) atacats als banas del tòro. Las corsas se deròlan dins d'arenas vilatjanas, sovent lors de las festas votivas, de junh a octobre, amb d'eveniments de prestigi dins las arenas romanas de Nimes e d'Arle.
-
-Lo tòro es al còr de la disciplina : adquieirís al dintre de sa carrièra una veritabla notorietat. Los individús los mai vius a respondre a las solicitacions dels rasetaires tot en defendènt galhardament lors atributs son seguits amb passion pels fanas de bouvina. Certans devon de veritablas vedetas, aclamadas a cada entrada en pista.
-
-La FFCC (Federacion Francesa de Corsa Camarguesa) organiza mantuns nivèls de competicion, amb entre autres lo Trofèu Avenir (joves en debuta de carrièra) e lo Trofèu dels As (l'elita de la disciplina).
-
-### Licéncia
-
-[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) © 2026 ThomasPGC
-
-Per tot usatge comercial, mercé de prendre contacte.
-
-### Contacte
-
-📧 thomaspgc@proton.me
-
-Mos sites pro :
-- [insta-note.com](https://insta-note.com)
-- [leptotech — Crealead](https://www.crealead.com/nos-entrepreneurs/leptotech#services)
-
-### Contribuir
-
-Las correccions de geocodatge, ajusts de comunas mancantes o amelhoraments de l'interfàcia son los benvenguts via pull request.
-
----
-
-<a name="interlingua"></a>
-## 🌍 Interlingua
-
-### Functionalitates
-
-- 📍 Tote le cursas del saison 2026 sur un carta OpenStreetMap
-- 🥇 Marcatores colorite per nivel : auro (Tropheo As), argento (Tropheo Avenir), blau (alteres)
-- 🕐 Detalio per communa : data, hora, nivel, tarifa
-- 📅 Filtro per periodo pro trovar le cursas proxime in le tempore
-
 ### La courso camargueso
 
 La courso camargueso, o courso liéuro, es uno disciplino esportivo e culturaio tradiciounalo dóu Miejour de Franço, practicado principaumen dins lou Gard, l'Éraur, lei Bóuco-dóu-Ròse e lou Vaucluso.
@@ -157,6 +116,45 @@ Miéi site proufessiounau :
 Lei correccioun de geocodage, ajust de comunas mancanto o amelhouracioun de l'interfàci soun li benvengudo vio pull request.
 
 ---
+
+<a name="interlingua"></a>
+## 🌍 Interlingua
+
+### Functionalitates
+
+- 📍 Tote le cursas del saison 2026 sur un carta OpenStreetMap
+- 🥇 Marcatores colorite per nivel : auro (Tropheo As), argento (Tropheo Avenir), blau (alteres)
+- 🕐 Detalio per communa : data, hora, nivel, tarifa
+- 📅 Filtro per periodo pro trovar le cursas proxime in le tempore
+
+### Le cursa camarguese
+
+Le cursa camarguese, o cursa libere, es un disciplina sportive e cultural traditional del sud de Francia, practicate principalemente in le Gard, le Hérault, le Bouches-du-Rhône e le Vaucluse.
+
+Le principio : rasatores cerca a remover con un croc (le raset) attributos (un cocarda, duo glandas e duo filamentos) attachate al cornos del tauro. Le cursas se desenrola in arenas de villagio, sovente durante le festas votive, de junio a octobre, con eventos de prestigio in le arenas romane de Nîmes e de Arles.
+
+Le tauro es al corde del disciplina : ille acquiri durante su carriera un veritable notorietate. Le individuos le plus vive a responder al sollicitationes del rasatores, defendendose galliardemente su attributos, es sequite con passion per le fanas de bouvina. Alicunes deveni veritabile vedetas, acclamate a cata entrata in pista.
+
+Le FFCC (Federation Francese de Cursa Camarguese) organisa plure niveles de competion, includente le Tropheo Avenir (juvenes in initio de carriera) e le Tropheo del As (le elite del disciplina).
+
+### Licentia
+
+[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) © 2026 Thomas PGC
+
+Pro tote uso commercial, gratias de contactar nos.
+
+### Contacto
+
+📧 thomaspgc@proton.me
+
+Mi sitos professional :
+- [insta-note.com](https://insta-note.com)
+- [leptotech — Crealead](https://www.crealead.com/nos-entrepreneurs/leptotech#services)
+
+### Contribuer
+
+Le correctiones de geocodage, additiones de communas mancante o meliorationes del interfacie es benvenite via pull request.
+
 ---
 
 <a name="english"></a>
