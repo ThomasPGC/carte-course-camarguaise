@@ -78,14 +78,15 @@ Les corrections de géocodage, ajouts de communes manquantes ou améliorations d
 ---
 
 <a name="occitan"></a>
-## 🌞 Occitan
+## 🌞 Óucitan
 
-### Foncionalitats
+### Fouciounnalità
 
-- 📍 Totas las corsas de la sason 2026 sus una carta OpenStreetMap
-- 🥇 Marcadors colorats per nivèl : aur (Trofèu As), argent (Trofèu Avenir), blau (autres)
-- 🕐 Detalh per comuna : data, ora, nivèl, tarifa
-- 📅 Filtre per periòde per trobar las corsas pròches dins lo temps
+- 📍 Touti lei courso de la sason 2026 sus uno carto OpenStreetMap
+- 🥇 Marcadour couloura per nivèu : or (Trofèu dei As), argent (Trofèu Aveni), blàu (autrei)
+- 🕐 Detalh per comuno : dato, uro, nivèu, tarife
+- 📅 Filtre per periòde pèr trouba lei courso procho dins lou tèms
+
 
 ### La corsa camarguesa
 
@@ -127,34 +128,35 @@ Las correccions de geocodatge, ajusts de comunas mancantes o amelhoraments de l'
 - 🕐 Detalio per communa : data, hora, nivel, tarifa
 - 📅 Filtro per periodo pro trovar le cursas proxime in le tempore
 
-### Le cursa camarguese
+### La courso camargueso
 
-Le cursa camarguese, o cursa libere, es un disciplina sportive e cultural traditional del sud de Francia, practicate principalemente in le Gard, le Hérault, le Bouches-du-Rhône e le Vaucluse.
+La courso camargueso, o courso liéuro, es uno disciplino esportivo e culturaio tradiciounalo dóu Miejour de Franço, practicado principaumen dins lou Gard, l'Éraur, lei Bóuco-dóu-Ròse e lou Vaucluso.
 
-Le principio : rasatores cerca a remover con un croc (le raset) attributos (un cocarda, duo glandas e duo filamentos) attachate al cornos del tauro. Le cursas se desenrola in arenas de villagio, sovente durante le festas votive, de junio a octobre, con eventos de prestigio in le arenas romane de Nîmes e de Arles.
+Lou principi : de rasataire cercon à óustar emé un crouchet (lou raset) d'atribut (uno cocardo, dous gland e dous ficèlo) atacat i banno dóu biòu. Lei courso se fan dins d'areno de village, souvènt pèr lei fésto votivo, de junh à óutobre, emé d'evenimen de prestigi dins lei areno romano de Nimes e d'Arle.
 
-Le tauro es al corde del disciplina : ille acquiri durante su carriera un veritable notorietate. Le individuos le plus vive a responder al sollicitationes del rasatores, defendendose galliardemente su attributos, es sequite con passion per le fanas de bouvina. Alicunes deveni veritabile vedetas, acclamate a cata entrata in pista.
+Lou biòu es au còr de la disciplino : adqier au long de sa carriero uno veritablo notorietà. Li plus viu à respondre i soulicitacioun dei rasataire tout en defendènt galhardamen si atribut soun segui emé passien pèi li fano de bouvino. Certan devènon de veritablo vedeto, aclamado à chasco intrado en pisto.
 
-Le FFCC (Federation Francese de Cursa Camarguese) organisa plure niveles de competion, includente le Tropheo Avenir (juvenes in initio de carriera) e le Tropheo del As (le elite del disciplina).
+La FFCC (Federacioun Franceso de Courso Camargueso) óurganifo plusiour nivèu de competicioun, emé entre autre lou Trofèu Aveni (jouine en debuto de carriero) e lou Trofèu dei As (l'elito de la disciplino).
 
-### Licentia
+### Licènci
 
 [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) © 2026 ThomasPGC
 
-Pro tote uso commercial, gratias de contactar nos.
+Pèr tout usatge comerciau, mercé de prendre countacte.
 
-### Contacto
+### Countacte
 
 📧 thomaspgc@proton.me
 
-Mi sitos professional :
+Miéi site proufessiounau :
 - [insta-note.com](https://insta-note.com)
 - [leptotech — Crealead](https://www.crealead.com/nos-entrepreneurs/leptotech#services)
 
-### Contribuer
+### Countribuï
 
-Le correctiones de geocodage, additiones de communas mancante o meliorationes del interfacie es benvenite via pull request.
+Lei correccioun de geocodage, ajust de comunas mancanto o amelhouracioun de l'interfàci soun li benvengudo vio pull request.
 
+---
 ---
 
 <a name="english"></a>
